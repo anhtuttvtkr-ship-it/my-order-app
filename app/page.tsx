@@ -4,26 +4,26 @@ export default function Home() {
   const portals = [
     {
       title: 'Quản Lý Admin',
-      description: 'Quản lý kho hàng thịt nhập khẩu, giá bán, báo cáo doanh thu và cấu hình hệ thống.',
+      description: 'Quản lý kho hàng thực phẩm sạch, giá bán, báo cáo doanh thu và cấu hình hệ thống.',
       url: 'https://admin.cuonghuefoods.com',
       badge: 'Admin',
-      badgeColor: 'bg-red-500/10 text-red-500 border-red-500/30',
-      icon: '🛡️',
+      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+      icon: '📊',
     },
     {
       title: 'Cổng Nhân Viên (POS)',
-      description: 'Giao diện soạn hàng, cắt thái thịt theo yêu cầu và xử lý đơn tại quầy.',
+      description: 'Giao diện soạn hàng, sơ chế thịt tươi, chuẩn bị set đồ ăn và xử lý đơn.',
       url: 'https://staff.cuonghuefoods.com',
       badge: 'Staff',
-      badgeColor: 'bg-amber-500/10 text-amber-500 border-amber-500/30',
-      icon: '🥩',
+      badgeColor: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
+      icon: '🔪',
     },
     {
       title: 'Đặt Hàng Trực Tuyến',
-      description: 'Kênh đặt thịt bò, combo lẩu nướng và gia vị giao tận nhà cho khách hàng.',
+      description: 'Kênh đặt thực phẩm tươi sống, set sơ chế sẵn, đồ ăn chín giao tận nhà.',
       url: 'https://link.cuonghuefoods.com',
       badge: 'Khách Hàng',
-      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+      badgeColor: 'bg-green-500/10 text-green-400 border-green-500/30',
       icon: '🛒',
     },
     {
@@ -37,38 +37,37 @@ export default function Home() {
   ];
 
   const categories = [
-    'Thịt Bố Úc / Mỹ',
-    'Combo Lẩu Nướng',
-    'Thịt Heo / Cừu',
-    'Sốt & Gia Vị',
-    'Hải Sản Nhập Khẩu',
+    '🥩 Thực phẩm tươi sống (Bò, Lợn)',
+    '🥗 Set thực phẩm sơ chế sẵn',
+    '🍱 Đồ ăn chín (Cơm nhà)',
+    '🥦 Cửa hàng thực phẩm tự nhiên',
   ];
 
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col justify-between p-4 md:p-8 font-sans">
       {/* Header */}
       <header className="max-w-5xl mx-auto w-full flex flex-col items-center text-center space-y-4 pt-6 pb-4">
-        <div className="flex items-center space-x-2 bg-red-950/80 border border-red-800/50 px-4 py-1.5 rounded-full">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
-          <span className="text-xs font-bold uppercase tracking-wider text-red-400">
-            Cường Huệ Foods • Thực Phẩm Sạch & Thịt Nhập Khẩu
+        <div className="flex items-center space-x-2 bg-emerald-950/80 border border-emerald-800/50 px-4 py-1.5 rounded-full">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+            Chất lượng – An toàn – Tiện lợi – Vì sức khỏe
           </span>
         </div>
 
         <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white uppercase">
-          Hệ Thống <span className="text-red-500">Đặt Hàng & Quản Lý</span>
+          THỰC PHẨM SẠCH <span className="text-emerald-500">CƯỜNG HUỆ</span>
         </h1>
         
         <p className="text-zinc-400 text-sm md:text-base max-w-2xl leading-relaxed">
-          Giải pháp quản lý phân phối thịt tươi sống, thực phẩm đông lạnh và hệ thống đặt món tự động dành cho chuỗi cửa hàng Cường Huệ Foods.
+          Với 20 năm kinh nghiệm trong ngành thực phẩm, Cường Huệ Foods mang đến các sản phẩm an toàn, tiện lợi cho mọi gia đình.
         </p>
 
-        {/* Danh mục sản phẩm gợi ý */}
+        {/* Danh mục danh mục */}
         <div className="flex flex-wrap justify-center gap-2 pt-2">
           {categories.map((cat, idx) => (
             <span
               key={idx}
-              className="text-xs bg-zinc-900 border border-zinc-800 text-zinc-300 px-3 py-1 rounded-lg hover:border-red-500/50 transition-colors"
+              className="text-xs bg-zinc-900 border border-zinc-800 text-emerald-300 px-3 py-1.5 rounded-lg hover:border-emerald-500/50 transition-colors"
             >
               {cat}
             </span>
@@ -82,7 +81,7 @@ export default function Home() {
           <a
             key={portal.badge}
             href={portal.url}
-            className="group relative p-6 bg-zinc-900/80 border border-zinc-800/80 rounded-2xl transition-all duration-300 hover:border-red-500/60 hover:bg-zinc-900 hover:shadow-2xl hover:shadow-red-950/20 hover:-translate-y-1 flex flex-col justify-between"
+            className="group relative p-6 bg-zinc-900/80 border border-zinc-800/80 rounded-2xl transition-all duration-300 hover:border-emerald-500/60 hover:bg-zinc-900 hover:shadow-2xl hover:shadow-emerald-950/20 hover:-translate-y-1 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -90,7 +89,7 @@ export default function Home() {
                   <span className="text-2xl p-2 bg-zinc-950 rounded-xl border border-zinc-800">
                     {portal.icon}
                   </span>
-                  <h2 className="text-xl font-bold text-zinc-100 group-hover:text-red-400 transition-colors">
+                  <h2 className="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
                     {portal.title}
                   </h2>
                 </div>
@@ -105,7 +104,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex items-center text-xs font-bold text-red-400 group-hover:text-red-300 transition-colors pt-4 border-t border-zinc-800/50">
+            <div className="flex items-center text-xs font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors pt-4 border-t border-zinc-800/50">
               Truy cập phân hệ
               <svg
                 className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1.5"
@@ -128,17 +127,18 @@ export default function Home() {
       {/* Footer & Liên hệ */}
       <footer className="max-w-5xl mx-auto w-full pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
         <div>
-          <p className="font-medium text-zinc-400">CƯỜNG HUỆ FOODS - Chuyên Thực Phẩm Nhập Khẩu</p>
-          <p>© {new Date().getFullYear()} Cuong Hue Foods. Tất cả quyền được bảo lưu.</p>
+          <p className="font-bold text-emerald-400">THỰC PHẨM SẠCH CƯỜNG HUỆ</p>
+          <p className="text-zinc-400">📍 Địa chỉ: 523 Nguyễn Trãi - Hạc Thành - Thanh Hóa</p>
+          <p className="text-zinc-400">📞 Hotline: 0832 865 060 - 0829 261 982</p>
         </div>
         <div className="flex items-center space-x-4">
           <a
-            href="https://cuonghuefoods.com"
+            href="https://zalo.me/g/fkjggh648"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-red-400 transition-colors"
+            className="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg font-semibold transition-colors"
           >
-            Website Chính Thức ↗
+            Nhóm Zalo Đồ Ăn Chín ↗
           </a>
         </div>
       </footer>
