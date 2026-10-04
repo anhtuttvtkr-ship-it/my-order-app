@@ -1,77 +1,114 @@
-import Link from 'next/link';
+import React from 'react';
 
 export default function Home() {
-  const subdomains = [
+  const portals = [
     {
-      title: 'Admin Portal',
-      description: 'Quản lý hệ thống, đơn hàng và cấu hình chung.',
+      title: 'Quản Lý Admin',
+      description: 'Quản lý kho hàng thịt nhập khẩu, giá bán, báo cáo doanh thu và cấu hình hệ thống.',
       url: 'https://admin.cuonghuefoods.com',
       badge: 'Admin',
-      badgeColor: 'bg-red-500/10 text-red-500 border-red-500/20',
+      badgeColor: 'bg-red-500/10 text-red-500 border-red-500/30',
+      icon: '🛡️',
     },
     {
-      title: 'Staff Portal',
-      description: 'Giao diện dành cho nhân viên xử lý đơn và nhận món.',
+      title: 'Cổng Nhân Viên (POS)',
+      description: 'Giao diện soạn hàng, cắt thái thịt theo yêu cầu và xử lý đơn tại quầy.',
       url: 'https://staff.cuonghuefoods.com',
       badge: 'Staff',
-      badgeColor: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+      badgeColor: 'bg-amber-500/10 text-amber-500 border-amber-500/30',
+      icon: '🥩',
     },
     {
-      title: 'Order Link',
-      description: 'Đường dẫn đặt hàng trực tuyến cho khách hàng.',
+      title: 'Đặt Hàng Trực Tuyến',
+      description: 'Kênh đặt thịt bò, combo lẩu nướng và gia vị giao tận nhà cho khách hàng.',
       url: 'https://link.cuonghuefoods.com',
-      badge: 'Customer',
-      badgeColor: 'bg-green-500/10 text-green-500 border-green-500/20',
+      badge: 'Khách Hàng',
+      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+      icon: '🛒',
     },
     {
-      title: 'Demo System',
-      description: 'Môi trường xem thử và trải nghiệm tính năng mới.',
+      title: 'Hệ Thống Dùng Thử',
+      description: 'Môi trường thử nghiệm tính năng mới và cập nhật bảng giá khuyến mãi.',
       url: 'https://demo.cuonghuefoods.com',
       badge: 'Demo',
-      badgeColor: 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20',
+      badgeColor: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
+      icon: '⚡',
     },
   ];
 
-  return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-6">
-      {/* Header */}
-      <div className="max-w-3xl text-center space-y-4 mb-12">
-        <span className="text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800/40">
-          Cường Huệ Foods
-        </span>
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-          Hệ Thống Quản Lý Đặt Hàng
-        </h1>
-        <p className="text-slate-400 text-base md:text-lg">
-          Chọn cổng truy cập tương ứng với vai trò của bạn bên dưới
-        </p>
-      </div>
+  const categories = [
+    'Thịt Bố Úc / Mỹ',
+    'Combo Lẩu Nướng',
+    'Thịt Heo / Cừu',
+    'Sốt & Gia Vị',
+    'Hải Sản Nhập Khẩu',
+  ];
 
-      {/* Grid điều hướng */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
-        {subdomains.map((item) => (
+  return (
+    <main className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col justify-between p-4 md:p-8 font-sans">
+      {/* Header */}
+      <header className="max-w-5xl mx-auto w-full flex flex-col items-center text-center space-y-4 pt-6 pb-4">
+        <div className="flex items-center space-x-2 bg-red-950/80 border border-red-800/50 px-4 py-1.5 rounded-full">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+          <span className="text-xs font-bold uppercase tracking-wider text-red-400">
+            Cường Huệ Foods • Thực Phẩm Sạch & Thịt Nhập Khẩu
+          </span>
+        </div>
+
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white uppercase">
+          Hệ Thống <span className="text-red-500">Đặt Hàng & Quản Lý</span>
+        </h1>
+        
+        <p className="text-zinc-400 text-sm md:text-base max-w-2xl leading-relaxed">
+          Giải pháp quản lý phân phối thịt tươi sống, thực phẩm đông lạnh và hệ thống đặt món tự động dành cho chuỗi cửa hàng Cường Huệ Foods.
+        </p>
+
+        {/* Danh mục sản phẩm gợi ý */}
+        <div className="flex flex-wrap justify-center gap-2 pt-2">
+          {categories.map((cat, idx) => (
+            <span
+              key={idx}
+              className="text-xs bg-zinc-900 border border-zinc-800 text-zinc-300 px-3 py-1 rounded-lg hover:border-red-500/50 transition-colors"
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+      </header>
+
+      {/* Grid danh sách cổng truy cập */}
+      <section className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+        {portals.map((portal) => (
           <a
-            key={item.badge}
-            href={item.url}
-            className="group relative p-6 bg-slate-900/60 border border-slate-800 rounded-2xl transition-all duration-300 hover:border-slate-600 hover:bg-slate-900 hover:shadow-xl hover:-translate-y-1"
+            key={portal.badge}
+            href={portal.url}
+            className="group relative p-6 bg-zinc-900/80 border border-zinc-800/80 rounded-2xl transition-all duration-300 hover:border-red-500/60 hover:bg-zinc-900 hover:shadow-2xl hover:shadow-red-950/20 hover:-translate-y-1 flex flex-col justify-between"
           >
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">
-                {item.title}
-              </h2>
-              <span
-                className={`text-xs px-2.5 py-1 rounded-md border font-medium ${item.badgeColor}`}
-              >
-                {item.badge}
-              </span>
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl p-2 bg-zinc-950 rounded-xl border border-zinc-800">
+                    {portal.icon}
+                  </span>
+                  <h2 className="text-xl font-bold text-zinc-100 group-hover:text-red-400 transition-colors">
+                    {portal.title}
+                  </h2>
+                </div>
+                <span
+                  className={`text-xs px-2.5 py-1 rounded-md border font-semibold ${portal.badgeColor}`}
+                >
+                  {portal.badge}
+                </span>
+              </div>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                {portal.description}
+              </p>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              {item.description}
-            </p>
-            <div className="flex items-center text-xs font-semibold text-slate-300 group-hover:text-emerald-400 transition-colors">
-              Truy cập ngay
+
+            <div className="flex items-center text-xs font-bold text-red-400 group-hover:text-red-300 transition-colors pt-4 border-t border-zinc-800/50">
+              Truy cập phân hệ
               <svg
-                className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1"
+                className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -79,18 +116,31 @@ export default function Home() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
             </div>
           </a>
         ))}
-      </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="mt-16 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Cường Huệ Foods. All rights reserved.
+      {/* Footer & Liên hệ */}
+      <footer className="max-w-5xl mx-auto w-full pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <div>
+          <p className="font-medium text-zinc-400">CƯỜNG HUỆ FOODS - Chuyên Thực Phẩm Nhập Khẩu</p>
+          <p>© {new Date().getFullYear()} Cuong Hue Foods. Tất cả quyền được bảo lưu.</p>
+        </div>
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://cuonghuefoods.com"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-red-400 transition-colors"
+          >
+            Website Chính Thức ↗
+          </a>
+        </div>
       </footer>
     </main>
   );
